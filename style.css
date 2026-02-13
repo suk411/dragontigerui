@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
 
   font-family: Arial, sans-serif;
@@ -22,12 +22,12 @@ body {
 
 .stage {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   aspect-ratio: 9 / 16;
   overflow: hidden;
 }
 
-/* Background Image */
+/* Background */
 .bg {
   position: absolute;
   inset: 0;
@@ -48,10 +48,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 12%;
+  width: clamp(45px, 10vw, 80px);
   aspect-ratio: 1;
-  border-radius: 50%;
 
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
 
   display: flex;
@@ -61,7 +61,6 @@ body {
   color: white;
   font-weight: 900;
 
-  /* Responsive Text */
   font-size: clamp(14px, 3vw, 34px);
   line-height: 1;
 
@@ -83,7 +82,7 @@ body {
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5%;
+  gap: 1%;
 
   z-index: 50;
 }
@@ -97,7 +96,7 @@ body {
   align-items: center;
 }
 
-/* Betting background image */
+/* Betting background */
 .bet-box img.bgbox {
   position: absolute;
   inset: 0;
@@ -106,16 +105,16 @@ body {
   height: 100%;
 }
 
-/* Dragon / Tiger icon */
+/* Dragon/Tiger icons responsive */
 .bet-box img.icon {
-  width: 60%;
+  width: clamp(40%, 6vw, 70%);
   position: relative;
   z-index: 10;
 }
 
-/* Tie icon smaller */
+/* Tie smaller */
 .bet-box img.icon.small {
-  width: 30%;
+  width: clamp(20%, 4vw, 35%);
 }
 
 /* ============================= */
@@ -127,23 +126,25 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-
+  padding: 10px 0;
   width: 95%;
 
   display: flex;
   justify-content: center;
-  gap: 15px;
+
+  /* Responsive spacing */
+  gap: clamp(20px, 2vw, 18px);
 
   z-index: 200;
 }
 
 /* ============================= */
-/* CHIP BUTTON (SPRITE SYSTEM) */
+/* CHIP BUTTON (RESPONSIVE SPRITE) */
 /* ============================= */
 
 .chip {
-  width: 50px;
-  height: 50px;
+  width: clamp(38px, 8vw, 70px);
+  aspect-ratio: 1;
 
   border-radius: 50%;
   border: 2px solid transparent;
@@ -152,43 +153,41 @@ body {
   transition: 0.2s;
 }
 
-/* Chip sprite inside button */
+/* Chip sprite inside */
 .chip-sprite {
   width: 100%;
   height: 100%;
 
   border-radius: 50%;
+ 
 
-  /* ✅ Sprite sheet image */
+  /* Default sprite sheet */
   background-image: url("assets/chips2.png");
 
-  /* ✅ ZOOM CONTROL */
-  /* Increase = zoom in */
+  /* Zoom control */
   background-size: 660% 660%;
-  background-color: black;
-
-  /* ✅ POSITION CONTROL */
-  /* Change in JS */
-  background-position: 0% 0%;
 
   background-repeat: no-repeat;
+
+  /* Position comes from JS */
+  background-position: 0% 0%;
 }
 
-/* Active selected chip */
+/* Active chip */
 .chip.active {
   border: 2px solid gold;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* ============================= */
-/* FLYING COIN ANIMATION */
+/* FLYING COIN (RESPONSIVE) */
 /* ============================= */
 
 .coin {
   position: fixed;
 
-  width: 50px;
-  height: 50px;
+  width: clamp(30px, 6.5vw, 60px);
+  aspect-ratio: 1;
 
   border-radius: 50%;
 
@@ -207,8 +206,8 @@ body {
 
   background-image: url("assets/chips2.png");
 
-  /* SAME ZOOM AS BUTTON */
-  background-size: 670% 670%;
+  /* Same zoom */
+  background-size: 660% 660%;
 
   background-repeat: no-repeat;
 }

@@ -1,4 +1,7 @@
+/* ============================= */
 /* TIMER SYSTEM */
+/* ============================= */
+
 let totalTime = 12;
 let timeLeft = totalTime;
 
@@ -11,10 +14,14 @@ setInterval(() => {
   }
 }, 1000);
 
-/* ✅ CHIP SPRITE DATA */
+/* ============================= */
+/* CHIP SPRITE DATA */
+/* ============================= */
+
 const chips = [
   { value: 10, img: "assets/chips2.png", pos: "14.1% 85.1%" },
   { value: 50, img: "assets/chips2.png", pos: "34.1% 85.1%" },
+
   { value: 100, img: "assets/chips1.png", pos: "97.2% 83.1%" },
   { value: 500, img: "assets/chips1.png", pos: "1.1% 25.1%" },
   { value: 1000, img: "assets/chips1.png", pos: "21.1% 25.1%" },
@@ -24,16 +31,19 @@ let activeChipIndex = 0;
 
 const chipBar = document.getElementById("chipBar");
 
+/* ============================= */
 /* CREATE CHIP BUTTONS */
+/* ============================= */
+
 chips.forEach((chip, index) => {
   const chipBtn = document.createElement("div");
   chipBtn.className = "chip";
 
-  /* ✅ Create sprite div */
+  /* Create sprite div */
   const sprite = document.createElement("div");
   sprite.className = "chip-sprite";
 
-  /* Apply correct sprite sheet */
+  /* Apply sprite sheet */
   sprite.style.backgroundImage = `url(${chip.img})`;
 
   /* Apply chip position */
@@ -41,6 +51,7 @@ chips.forEach((chip, index) => {
 
   chipBtn.appendChild(sprite);
 
+  /* Select chip */
   chipBtn.onclick = () => {
     activeChipIndex = index;
     updateActiveChip();
@@ -49,6 +60,7 @@ chips.forEach((chip, index) => {
   chipBar.appendChild(chipBtn);
 });
 
+/* Highlight active chip */
 function updateActiveChip() {
   document.querySelectorAll(".chip").forEach((el, i) => {
     el.classList.toggle("active", i === activeChipIndex);
@@ -57,7 +69,10 @@ function updateActiveChip() {
 
 updateActiveChip();
 
-/* THROW CHIP */
+/* ============================= */
+/* THROW CHIP SYSTEM */
+/* ============================= */
+
 function throwChip(target) {
   const activeChip = chips[activeChipIndex];
 
@@ -93,7 +108,7 @@ function throwChip(target) {
     coin.style.top = targetY;
   }, 50);
 
-  /* Remove */
+  /* Remove after landing */
   setTimeout(() => {
     coin.remove();
   }, 1000);
