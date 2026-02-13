@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragon Tiger Game Stage</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="stage">
+
+    <!-- Background -->
+    <img src="assets/bg-red.webp" class="bg" />
+
+    <!-- Timer -->
+    <div class="timer" id="timer">12</div>
+
+    <!-- Betting Area -->
+    <div class="betting">
+
+      <div class="bet-box" onclick="throwChip('dragon')">
+        <img src="assets/dragonbg.webp" class="bgbox">
+        <img src="assets/dragon.webp" class="icon">
+      </div>
+
+      <div class="bet-box" onclick="throwChip('tie')">
+        <img src="assets/tiebg.webp" class="bgbox">
+        <img src="assets/tie.webp" class="icon small">
+      </div>
+
+      <div class="bet-box" onclick="throwChip('tiger')">
+        <img src="assets/tigerbg.webp" class="bgbox">
+        <img src="assets/tiger.webp" class="icon">
+      </div>
+
+    </div>
+
+    <!-- ✅ CHIP SELECTOR -->
+    <div class="chip-bar" id="chipBar"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
